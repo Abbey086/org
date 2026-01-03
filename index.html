@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title class="name"></title>
+    <script src="tw.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,500,700" rel="stylesheet">
+    <link href="remixicon.css" rel="stylesheet">
+    <style>
+      * {
+        font-family: "Raleway", sans-serif;
+      }
+      
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+      
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      .slide-in-left {
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+      }
+      
+      .slide-in-left.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      
+      .slide-in-right {
+        opacity: 0;
+        transform: translateX(50px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+      }
+      
+      .slide-in-right.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .mobile-menu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+      
+      .mobile-menu.active {
+        max-height: 500px;
+      }
+    </style>
+  </head>
+  <body class="bg-emerald-50">
+    <nav class="flex sticky top-0 z-50 bg-emerald-50 justify-between px-4 items-center py-3 shadow-sm">
+      <div class="space-x-0.5">
+        <i class="ri-hearts-fill text-xl text-emerald-500"></i>
+        <b class="name font-bold"></b>
+      </div>
+      <div class="hidden md:flex space-x-6 text-sm">
+        <a href="#home" class="hover:text-emerald-600 transition">Home</a>
+        <a href="#about" class="hover:text-emerald-600 transition">About</a>
+        <a href="#impact" class="hover:text-emerald-600 transition">Our Impact</a>
+        <a href="#programs" class="hover:text-emerald-600 transition">Programs</a>
+        <a href="#donate" class="hover:text-emerald-600 transition">Donate</a>
+      </div>
+      <div class="flex items-center space-x-1">
+        <a class="bg-white/50 border-black border py-1 px-3 text-sm rounded-full hover:bg-emerald-500 hover:text-white hover:border-emerald-500 transition" href="#donate">Donate Now</a>
+        <button id="menu-toggle" class="md:hidden hover:bg-emerald-500 rounded-full aspect-square p-1.5 w-11 h-11 hover:text-white text-lg transition">
+          <i class="ri-menu-2-line"></i>
+        </button>
+      </div>
+    </nav>
+
+    <div id="mobile-menu" class="mobile-menu md:hidden bg-white shadow-lg">
+      <div class="flex flex-col p-4 space-y-3">
+        <a href="#home" class="hover:text-emerald-600 transition py-2">Home</a>
+        <a href="#about" class="hover:text-emerald-600 transition py-2">About</a>
+        <a href="#impact" class="hover:text-emerald-600 transition py-2">Our Impact</a>
+        <a href="#programs" class="hover:text-emerald-600 transition py-2">Programs</a>
+        <a href="#donate" class="hover:text-emerald-600 transition py-2">Donate</a>
+      </div>
+    </div>
+
+    <main id="home" class="m-3 overflow-hidden mt-0 rounded-xl bg-stone-800 h-[82vh] bg-no-repeat bg-center relative" style="background-image: url('image.jpeg'); background-size: cover;">
+      <div class="cover absolute bg-gradient-to-b from-transparent to-black w-full h-full"></div>
+      <div class="absolute space-y-1 bottom-4 left-4 right-4 fade-in visible">
+        <span class="bg-emerald-50 text-xs rounded-full py-1 pl-1 pr-2"><i class="text-emerald-500 animate-pulse">●</i> MAKING LIVES BETTER</span>
+        <h1 class="text-white font-semibold text-3xl md:text-5xl">Together We <span class="text-emerald-300">Support</span> A Life Of Some Child</h1>
+        <p class="text-white text-sm md:text-base">With all of us together, we build a new world of possibilities</p>
+        <a class="bg-emerald-600 inline-block text-white py-2 px-4 rounded-full hover:bg-emerald-700 transition mt-2" href="#donate">Donate Now</a>
+      </div>
+    </main>
+    
+    <section id="impact" class="grid md:grid-cols-3 gap-4 p-4">
+      <div class="card p-6 bg-white rounded-xl flex flex-col gap-6 fade-in shadow-sm hover:shadow-md transition">
+        <h2 class="text-4xl font-semibold text-emerald-600">1200+</h2>
+        <div>
+          <p class="text-sm text-gray-600">Children supported across 15 countries</p>
+        </div>
+      </div>
+      <div class="card p-6 bg-white rounded-xl flex flex-col gap-6 fade-in shadow-sm hover:shadow-md transition">
+        <i class="ri-heart-3-line text-4xl text-emerald-600"></i>
+        <div>
+          <h2 class="font-semibold text-xl">Compassion Based</h2>
+          <p class="text-sm text-gray-600">Building lasting relationships with communities through love and care</p>
+        </div>
+      </div>
+      <div class="card p-6 bg-white rounded-xl flex flex-col gap-6 fade-in shadow-sm hover:shadow-md transition">
+        <i class="ri-team-line text-4xl text-emerald-600"></i>
+        <div>
+          <h2 class="font-semibold text-xl">Community Driven</h2>
+          <p class="text-sm text-gray-600">Working hand-in-hand with local communities for sustainable change</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="m-4 p-8 bg-white rounded-xl slide-in-left">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold mb-4 text-gray-800">About Our Mission</h2>
+        <p class="text-gray-600 mb-4 leading-relaxed">
+          For over a decade, we've been dedicated to transforming the lives of children in underserved communities. Our approach combines education, healthcare, nutrition, and emotional support to give every child the foundation they need to thrive.
+        </p>
+        <p class="text-gray-600 leading-relaxed">
+          We believe that every child deserves access to quality education, proper healthcare, and a safe environment to grow. Through partnerships with local communities and dedicated volunteers, we're creating lasting change that spans generations.
+        </p>
+      </div>
+    </section>
+
+    <section id="programs" class="m-4">
+      <h2 class="text-3xl font-bold mb-6 text-center text-gray-800 fade-in">Our Programs</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="bg-white rounded-xl p-6 slide-in-left shadow-sm hover:shadow-md transition">
+          <i class="ri-book-open-line text-5xl text-emerald-600 mb-4"></i>
+          <h3 class="text-xl font-semibold mb-4">Education Support</h3>
+          <p class="text-gray-600 text-sm">Providing school supplies, tutoring, and scholarships to ensure every child can access quality education.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 fade-in shadow-sm hover:shadow-md transition">
+          <i class="ri-hospital-line text-5xl text-emerald-600 mb-4"></i>
+          <h3 class="text-xl font-semibold mb-4">Healthcare Access</h3>
+          <p class="text-gray-600 text-sm">Regular health checkups, vaccinations, and medical care for children and their families.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 slide-in-right shadow-sm hover:shadow-md transition">
+          <i class="ri-restaurant-line text-5xl text-emerald-600 mb-4"></i>
+          <h3 class="text-xl font-semibold mb-4">Nutrition Program</h3>
+          <p class="text-gray-600 text-sm">Daily meals and nutrition education to combat hunger and promote healthy growth.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 slide-in-left shadow-sm hover:shadow-md transition">
+          <i class="ri-home-heart-line text-5xl text-emerald-600 mb-4"></i>
+          <h3 class="text-xl font-semibold mb-4">Safe Spaces</h3>
+          <p class="text-gray-600 text-sm">Creating secure environments where children can learn, play, and develop freely.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 fade-in shadow-sm hover:shadow-md transition">
+          <i class="ri-parent-line text-5xl text-emerald-600 mb-4"></i>
+          <h3 class="text-xl font-semibold mb-4">Family Support</h3>
+          <p class="text-gray-600 text-sm">Empowering families with resources and skills to create stable, nurturing homes.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 slide-in-right shadow-sm hover:shadow-md transition">
+          <i class="ri-mental-health-line text-5xl text-emerald-600 mb-4"></i>
+          <h3 class="text-xl font-semibold mb-4">Emotional Wellbeing</h3>
+          <p class="text-gray-600 text-sm">Counseling and mental health support to help children overcome trauma and build resilience.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="donate" class="rounded-xl bg-no-repeat bg-center m-4 relative overflow-hidden" style="background-image: url('image.jpeg'); background-size: cover;">
+      <div class="absolute inset-0 bg-black/60"></div>
+      <div class="relative z-10 p-2 md:p-12">
+        <div class="max-w-md mx-auto bg-white/80 rounded-2xl p-4 shadow-2xl fade-in">
+          <h2 class="text-3xl font-bold mb-2 text-gray-800">Make a Difference Today</h2>
+          <p class="text-gray-600 mb-6 text-sm">Your contribution helps us provide essential resources to children in need.</p>
+          
+          <form class="space-y-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+              <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition" placeholder="John Doe" required>
+            </div>
+            
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+              <input type="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition" placeholder="john@example.com" required>
+            </div>
+            
+            <div class="grid grid-cols-3 gap-2">
+              <div class="col-span-1">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Currency</label>
+                <select class="w-full px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition text-sm">
+                  <option value="USD">USD $</option>
+                  <option value="EUR">EUR €</option>
+                  <option value="GBP">GBP £</option>
+                  <option value="UGX">UGX</option>
+                  <option value="KES">KES</option>
+                  <option value="NGN">NGN</option>
+                </select>
+              </div>
+              <div class="col-span-2">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Amount</label>
+                <input type="number" min="1" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition" placeholder="50" required>
+              </div>
+            </div>
+            
+            <div class="grid grid-cols-3 gap-2">
+              <button type="button" class="px-4 py-2 bg-emerald-50 text-emerald-700 rounded-lg hover:bg-emerald-100 transition text-sm font-medium">$25</button>
+              <button type="button" class="px-4 py-2 bg-emerald-50 text-emerald-700 rounded-lg hover:bg-emerald-100 transition text-sm font-medium">$50</button>
+              <button type="button" class="px-4 py-2 bg-emerald-50 text-emerald-700 rounded-lg hover:bg-emerald-100 transition text-sm font-medium">$100</button>
+            </div>
+            
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Message (Optional)</label>
+              <textarea rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition resize-none" placeholder="Your message of support..."></textarea>
+            </div>
+            
+            <button type="submit" class="w-full bg-emerald-600 text-white py-3 rounded-lg hover:bg-emerald-700 transition font-medium shadow-md hover:shadow-lg">
+              <i class="ri-heart-fill mr-2"></i>Donate Now
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-emerald-500 text-white mt-8">
+      <div class="max-w-6xl mx-auto px-4 py-12">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div>
+            <div class="flex items-center space-x-1 mb-4">
+              <i class="ri-hearts-fill text-2xl"></i>
+              <b class="name font-bold text-lg"></b>
+            </div>
+            <p class="text-emerald-50 text-sm">Transforming lives through compassion and community support.</p>
+          </div>
+          
+          <div>
+            <h3 class="font-semibold mb-4 text-lg">Quick Links</h3>
+            <ul class="space-y-2 text-sm text-emerald-50">
+              <li><a href="#home" class="hover:text-white transition">Home</a></li>
+              <li><a href="#about" class="hover:text-white transition">About Us</a></li>
+              <li><a href="#programs" class="hover:text-white transition">Programs</a></li>
+              <li><a href="#donate" class="hover:text-white transition">Donate</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 class="font-semibold mb-4 text-lg">Contact</h3>
+            <ul class="space-y-2 text-sm text-emerald-50">
+              <li><i class="ri-mail-line mr-2"></i>info@charity.org</li>
+              <li><i class="ri-phone-line mr-2"></i>+256 123-4567</li>
+              <li><i class="ri-map-pin-line mr-2"></i>123 Hope Street, City</li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 class="font-semibold mb-4 text-lg">Follow Us</h3>
+            <div class="flex space-x-3">
+              <a href="#" class="bg-white/20 hover:bg-white hover:text-emerald-500 w-10 h-10 rounded-full flex items-center justify-center transition">
+                <i class="ri-facebook-fill"></i>
+              </a>
+              <a href="#" class="bg-white/20 hover:bg-white hover:text-emerald-500 w-10 h-10 rounded-full flex items-center justify-center transition">
+                <i class="ri-twitter-fill"></i>
+              </a>
+              <a href="#" class="bg-white/20 hover:bg-white hover:text-emerald-500 w-10 h-10 rounded-full flex items-center justify-center transition">
+                <i class="ri-instagram-fill"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="border-t border-emerald-400 mt-8 pt-6 text-center text-sm text-emerald-50">
+          <p>&copy; 2026 <span class="name"></span>. All rights reserved. Made with <i class="ri-heart-fill text-red-400"></i> for children everywhere.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const value = params.get('prospect');
+      // Dynamic name insertion
+      const xc = document.querySelectorAll(".name");
+      for (let i = 0; i < xc.length; i++) {
+        xc[i].innerHTML = value;
+      }
+
+      // Mobile menu toggle
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+      });
+
+      // Close mobile menu when clicking a link
+      const mobileLinks = mobileMenu.querySelectorAll('a');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('active');
+        });
+      });
+
+      // Scroll animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+
+      // Observe all animated elements
+      document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+        observer.observe(el);
+      });
+
+      // Quick donation amount buttons
+      const quickAmountBtns = document.querySelectorAll('button[type="button"]');
+      const amountInput = document.querySelector('input[type="number"]');
+      
+      quickAmountBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const amount = btn.textContent.replace('$', '');
+          amountInput.value = amount;
+        });
+      });
+
+      // Form submission
+      const donationForm = document.querySelector('form');
+      donationForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Thank you for your generous donation! This is a demo - no actual payment has been processed.');
+        donationForm.reset();
+      });
+
+      // Smooth scroll for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
