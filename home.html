@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patio Bella | Arena Mall, Kampala</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            300: '#E5C558',
+                            400: '#D4AF37',
+                            500: '#C5A028',
+                            600: '#B48F17',
+                        },
+                        dark: {
+                            950: '#050505',
+                            900: '#0a0a0a',
+                            800: '#121212',
+                            700: '#1a1a1a'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Lato"', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1514362545857-3bc16549766b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')",
+                        'texture-dots': "radial-gradient(#333 1px, transparent 1px)"
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Utilities */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #D4AF37; }
+
+        .fade-in-up { animation: fadeInUp 0.6s ease-out forwards; opacity: 0; transform: translateY(20px); }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .gold-divider {
+            display: flex; align-items: center; justify-content: center; margin: 1.5rem 0; color: #D4AF37;
+        }
+        .gold-divider::before, .gold-divider::after {
+            content: ''; height: 1px; width: 60px; background-color: #D4AF37; margin: 0 15px; opacity: 0.6;
+        }
+
+        /* Mobile Menu Transition */
+        #mobile-menu { transition: transform 0.3s ease-in-out; }
+        .menu-open { transform: translateX(0) !important; }
+        .menu-closed { transform: translateX(100%); }
+    </style>
+</head>
+<body class="bg-dark-950 text-gray-300 font-sans antialiased">
+
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-dark-900/90 border-b border-white/5 backdrop-blur-md" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0 cursor-pointer z-50" onclick="router('home')">
+                    <h1 class="text-2xl md:text-3xl font-serif text-white tracking-widest uppercase font-bold">
+                        Patio<span class="text-gold-400">Bella</span>
+                    </h1>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a onclick="router('home')" class="cursor-pointer text-xs font-bold uppercase tracking-[0.15em] hover:text-gold-400 transition-colors">Home</a>
+                    <a onclick="router('menu')" class="cursor-pointer text-xs font-bold uppercase tracking-[0.15em] hover:text-gold-400 transition-colors">The Menu</a>
+                    <a onclick="router('about')" class="cursor-pointer text-xs font-bold uppercase tracking-[0.15em] hover:text-gold-400 transition-colors">About</a>
+                    <a onclick="router('contact')" class="cursor-pointer text-xs font-bold uppercase tracking-[0.15em] hover:text-gold-400 transition-colors">Contact</a>
+                    <button onclick="toggleModal()" class="ml-4 border border-gold-400 text-gold-400 px-6 py-2 text-xs font-bold uppercase tracking-widest hover:bg-gold-400 hover:text-black transition-all">
+                        Book Table
+                    </button>
+                </div>
+
+                <div class="md:hidden z-50">
+                    <button onclick="toggleMobileMenu()" class="text-white hover:text-gold-400 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="fixed inset-0 bg-gold-400 h-screen z-50 flex flex-col items-center pt-16 space-y-8 menu-closed md:hidden">
+            <button onclick="toggleMobileMenu()" class="absolute top-6 right-6 text-black ">
+                <i class="fas fa-times text-3xl"></i>
+            </button>
+            <a onclick="router('home'); toggleMobileMenu()" class="text-2xl font-serif text-white hover:text-gold-400">Home</a>
+            <a onclick="router('menu'); toggleMobileMenu()" class="text-2xl font-serif text-white hover:text-gold-400">The Menu</a>
+            <a onclick="router('about'); toggleMobileMenu()" class="text-2xl font-serif text-white hover:text-gold-400">About Us</a>
+            <a onclick="router('contact'); toggleMobileMenu()" class="text-2xl font-serif text-white hover:text-gold-400">Contact</a>
+            <button onclick="toggleModal(); toggleMobileMenu()" class="text-xl text-gold-400 bg-dark-800 border border-dark-400 px-8 py-3 uppercase tracking-widest">
+                Reservation
+            </button>
+        </div>
+    </nav>
+
+    <main id="app" class="pt-20 min-h-screen relative">
+        </main>
+
+    <div id="reservation-modal" class="fixed inset-0 z-[60] hidden">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity" onclick="toggleModal()"></div>
+        <div class="relative min-h-screen flex items-center justify-center p-4">
+            <div class="bg-dark-800 border border-white/10 w-full max-w-lg p-8 shadow-2xl rounded-sm transform transition-all">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-serif text-white">Table Reservation</h3>
+                    <button onclick="toggleModal()" class="text-gray-400 hover:text-white"><i class="fas fa-times"></i></button>
+                </div>
+                <form onsubmit="event.preventDefault(); alert('Thank you! Your request has been sent to our team.'); toggleModal();" class="space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <input type="text" placeholder="Name" class="w-full bg-dark-900 border border-white/10 text-white p-3 text-sm focus:border-gold-400 outline-none" required>
+                        <input type="tel" placeholder="Phone" class="w-full bg-dark-900 border border-white/10 text-white p-3 text-sm focus:border-gold-400 outline-none" required>
+                    </div>
+                    <input type="email" placeholder="Email Address" class="w-full bg-dark-900 border border-white/10 text-white p-3 text-sm focus:border-gold-400 outline-none">
+                    <div class="grid grid-cols-2 gap-4">
+                        <input type="date" class="w-full bg-dark-900 border border-white/10 text-gray-400 p-3 text-sm focus:border-gold-400 outline-none">
+                        <select class="w-full bg-dark-900 border border-white/10 text-gray-400 p-3 text-sm focus:border-gold-400 outline-none">
+                            <option>19:00</option><option>20:00</option><option>21:00</option>
+                        </select>
+                    </div>
+                    <textarea rows="3" placeholder="Special Requests (Allergies, Occasion)" class="w-full bg-dark-900 border border-white/10 text-white p-3 text-sm focus:border-gold-400 outline-none"></textarea>
+                    <button type="submit" class="w-full bg-gold-500 hover:bg-white hover:text-black text-black font-bold uppercase tracking-widest py-3 transition duration-300">
+                        Confirm Booking
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark-900 border-t border-white/5 pt-16 pb-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-2 lg:col-span-1">
+                    <h3 class="text-2xl font-serif text-white mb-6">Patio Bella</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                        An upscale casual dining experience in the heart of Kampala. We bring together chic design, exceptional cuisine, and the finest city views.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-dark-800 text-gold-400 hover:bg-gold-400 hover:text-black transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-dark-800 text-gold-400 hover:bg-gold-400 hover:text-black transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-dark-800 text-gold-400 hover:bg-gold-400 hover:text-black transition"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Contact</h4>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-3 text-gold-400"></i> Arena Mall, Upper Ground Floor<br>Nsambya, Kampala</li>
+                        <li class="flex items-center"><i class="fas fa-phone mr-3 text-gold-400"></i> +256 775 852656</li>
+                        <li class="flex items-center"><i class="fas fa-envelope mr-3 text-gold-400"></i> thepatiobella@gmail.com</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Opening Hours</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li class="flex justify-between border-b border-white/5 pb-2"><span>Monday - Friday</span> <span>07:00 - 00:00</span></li>
+                        <li class="flex justify-between border-b border-white/5 pb-2"><span>Saturday</span> <span>07:00 - 00:00</span></li>
+                        <li class="flex justify-between border-b border-white/5 pb-2"><span>Sunday</span> <span>07:00 - 00:00</span></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Newsletter</h4>
+                    <p class="text-xs text-gray-500 mb-4">Subscribe for offers and updates.</p>
+                    <form onsubmit="event.preventDefault()" class="flex flex-col space-y-2">
+                        <input type="email" placeholder="Email Address" class="bg-dark-800 text-white px-4 py-2 text-sm border border-white/5 focus:border-gold-400 outline-none">
+                        <button class="bg-gold-500 text-black text-xs font-bold uppercase py-2 hover:bg-white transition">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-white/5 pt-6 text-center">
+                <p class="text-xs text-gray-600 uppercase tracking-widest">&copy; 2026 Patio Bella. Designed by Amanda Technologies.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- DATA OBJECTS ---
+        const menuItems = {
+            starters: [
+                { name: "Avocado Salad", price: "20,000", desc: "Garden greens, grilled chicken strips, avocado & vinaigrette." },
+                { name: "Chicken Lollipops", price: "25,000", desc: "Spiced chicken drumettes, frenched and fried golden." },
+                { name: "Goat Ribs", price: "30,000", desc: "Roasted goat ribs marinated in local herbs." },
+                { name: "Bruschetta", price: "18,000", desc: "Toasted baguette with tomato basil salsa." },
+                { name: "Greek Salad", price: "22,500", desc: "Tomatoes, cucumber, feta cheese, olives, onion." }
+            ],
+            mains: [
+                { name: "Tokusen Wagyu", price: "39,000", desc: "Vegetables, cheeses, ground meats, tomato sauce." },
+                { name: "Chicken Parm Sub", price: "30,000", desc: "Crispy chicken, marinara, mozzarella on toasted bread." },
+                { name: "Tuscan Chicken", price: "35,000", desc: "Creamy garlic pasta with spinach and sun-dried tomatoes." },
+                { name: "Hawaiian Burger", price: "30,000", desc: "Beef patty with grilled pineapple and teriyaki glaze." },
+                { name: "Salmon Fillet", price: "55,000", desc: "Pan-seared salmon with lemon butter and veggies." },
+                { name: "Tilapia Fish", price: "40,000", desc: "Whole fresh fish served with plantain or fries." },
+                { name: "Butternut Pumpkin", price: "10,000", desc: "Creamy seasonal soup with croutons." }
+            ],
+            drinks: [
+                { name: "Signature Cocktails", price: "25,000", desc: "Ask your server for the daily special mix." },
+                { name: "House Wine (Glass)", price: "20,000", desc: "Red or White selection." },
+                { name: "Fresh Juice", price: "15,000", desc: "Passion, Melon, or Pineapple (No sugar added)." },
+                { name: "Local Beers", price: "8,000", desc: "Nile Special, Club, Bell Lager." }
+            ]
+        };
+
+        // --- VIEW TEMPLATES ---
+        const views = {
+            home: `
+                <section class="relative h-[90vh] -mt-20 flex items-center justify-center bg-hero-pattern bg-cover bg-center bg-fixed">
+                    <div class="text-center px-4 max-w-4xl mx-auto">
+                        <p class="fade-in-up text-gold-400 font-bold tracking-[0.3em] text-xs md:text-sm uppercase mb-6">Restaurant & Bar</p>
+                        <h1 class="fade-in-up delay-100 text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-8 leading-tight">
+                            Taste the <br/><span class="italic text-gold-300">Extraordinary</span>
+                        </h1>
+                        <p class="fade-in-up delay-200 text-gray-300 max-w-lg mx-auto mb-10 text-sm md:text-base leading-relaxed">
+                            Experience the finest fusion cuisine in Kampala's Arena Mall. 
+                            Where chic ambiance meets culinary perfection.
+                        </p>
+                        <div class="fade-in-up delay-300 flex flex-col md:flex-row gap-4 justify-center">
+                            <button onclick="router('menu')" class="bg-gold-500 text-black px-8 py-3 font-bold uppercase tracking-widest text-sm hover:bg-white transition duration-300">View Menu</button>
+                            <button onclick="toggleModal()" class="border border-white text-white px-8 py-3 font-bold uppercase tracking-widest text-sm hover:bg-gold-500 hover:border-gold-500 hover:text-black transition duration-300">Book Table</button>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:block">
+                        <span class="text-white/50 text-xs uppercase tracking-widest">Scroll</span>
+                        <i class="fas fa-chevron-down block text-center text-white/50 mt-2"></i>
+                    </div>
+                </section>
+
+                <section class="py-24 bg-dark-900">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid md:grid-cols-2 gap-16 items-center">
+                        <div class="order-2 md:order-1 relative">
+                            <div class="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-gold-400"></div>
+                            <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Interior" class="w-full h-[500px] object-cover grayscale hover:grayscale-0 transition duration-700 ease-in-out">
+                            <div class="absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-gold-400"></div>
+                        </div>
+                        <div class="order-1 md:order-2">
+                            <h4 class="text-gold-400 font-bold uppercase tracking-widest text-xs mb-4">Our Story</h4>
+                            <h2 class="text-4xl md:text-5xl font-serif text-white mb-6">A Little Escape <br/>From Daily Life</h2>
+                            <p class="text-gray-400 leading-relaxed mb-6">
+                                Patio Bella isn't just a restaurant; it's a sanctuary in the city. Located on the upper ground floor of Arena Mall, we offer a "sassy" sister experience to our original brasserie.
+                            </p>
+                            <p class="text-gray-400 leading-relaxed mb-8">
+                                Whether you are here for the sunset views on our famous patio or the professional mixology at our bar, every detail is curated for your enjoyment.
+                            </p>
+                            <button onclick="router('about')" class="text-white border-b border-gold-400 pb-1 text-sm uppercase tracking-widest hover:text-gold-400 transition">Read More</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="py-24 bg-dark-950 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                        <div class="text-center mb-16">
+                            <h4 class="text-gold-400 font-bold uppercase tracking-widest text-xs mb-3">Favorites</h4>
+                            <h2 class="text-4xl font-serif text-white">Chef's Selection</h2>
+                            <div class="gold-divider max-w-[100px] mx-auto">♦</div>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-3 gap-8">
+                            <div class="group bg-dark-900 border border-white/5 p-6 hover:border-gold-400/30 transition duration-300">
+                                <div class="h-48 overflow-hidden mb-6 relative">
+                                    <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                                    <span class="absolute top-4 right-4 bg-gold-500 text-black text-xs font-bold px-3 py-1">POPULAR</span>
+                                </div>
+                                <h3 class="text-xl font-serif text-white mb-2">Chicken Parm Sub</h3>
+                                <p class="text-gray-500 text-sm mb-4">Crispy chicken breast with marinara and melted mozzarella.</p>
+                                <span class="text-gold-400 font-bold">UGX 30,000</span>
+                            </div>
+
+                            <div class="group bg-dark-900 border border-white/5 p-6 hover:border-gold-400/30 transition duration-300">
+                                <div class="h-48 overflow-hidden mb-6 relative">
+                                    <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                                </div>
+                                <h3 class="text-xl font-serif text-white mb-2">Goat Ribs</h3>
+                                <p class="text-gray-500 text-sm mb-4">Tender roasted ribs marinated in signature local spices.</p>
+                                <span class="text-gold-400 font-bold">UGX 30,000</span>
+                            </div>
+
+                            <div class="group bg-dark-900 border border-white/5 p-6 hover:border-gold-400/30 transition duration-300">
+                                <div class="h-48 overflow-hidden mb-6 relative">
+                                    <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                                </div>
+                                <h3 class="text-xl font-serif text-white mb-2">Salmon Fillet</h3>
+                                <p class="text-gray-500 text-sm mb-4">Pan-seared premium salmon with seasonal vegetables.</p>
+                                <span class="text-gold-400 font-bold">UGX 55,000</span>
+                            </div>
+                        </div>
+                        <div class="text-center mt-12">
+                            <button onclick="router('menu')" class="border border-gold-400 text-gold-400 px-8 py-3 uppercase tracking-widest text-sm hover:bg-gold-400 hover:text-black transition">View Full Menu</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="py-20 bg-gold-600 text-black">
+                    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-8 text-center">
+                        <div>
+                            <i class="fas fa-star text-3xl mb-4"></i>
+                            <h3 class="text-4xl font-bold mb-2">5.0</h3>
+                            <p class="uppercase tracking-widest text-xs font-bold">TripAdvisor Rating</p>
+                        </div>
+                        <div>
+                            <i class="fas fa-utensils text-3xl mb-4"></i>
+                            <h3 class="text-4xl font-bold mb-2">60+</h3>
+                            <p class="uppercase tracking-widest text-xs font-bold">Dishes</p>
+                        </div>
+                        <div>
+                            <i class="fas fa-wine-glass-alt text-3xl mb-4"></i>
+                            <h3 class="text-4xl font-bold mb-2">20+</h3>
+                            <p class="uppercase tracking-widest text-xs font-bold">Signature Cocktails</p>
+                        </div>
+                        <div>
+                            <i class="fas fa-users text-3xl mb-4"></i>
+                            <h3 class="text-4xl font-bold mb-2">10k+</h3>
+                            <p class="uppercase tracking-widest text-xs font-bold">Happy Guests</p>
+                        </div>
+                    </div>
+                </section>
+            `,
+
+            menu: `
+                <section class="bg-dark-900 min-h-screen pb-24">
+                    <div class="pt-32 pb-16 bg-dark-950 text-center px-4">
+                        <h4 class="text-gold-400 font-bold uppercase tracking-widest text-xs mb-3">Culinary Delights</h4>
+                        <h2 class="text-5xl font-serif text-white">Our Menu</h2>
+                        <p class="text-gray-500 mt-4 max-w-xl mx-auto">A fusion of African soul, Italian passion, and Continental finesse.</p>
+                    </div>
+
+                    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+                        
+                        <div class="mb-16 fade-in-up">
+                            <h3 class="text-3xl font-serif text-white border-b border-white/10 pb-4 mb-8">Starters</h3>
+                            <div class="grid md:grid-cols-2 gap-x-16 gap-y-8">
+                                ${menuItems.starters.map(item => `
+                                    <div class="flex justify-between items-start group">
+                                        <div class="flex-grow pr-4">
+                                            <div class="flex justify-between items-baseline mb-1">
+                                                <h4 class="text-lg font-serif text-white group-hover:text-gold-400 transition">${item.name}</h4>
+                                                <div class="flex-grow mx-4 border-b border-dotted border-gray-700 h-1"></div>
+                                                <span class="text-gold-400 font-bold whitespace-nowrap">${item.price}</span>
+                                            </div>
+                                            <p class="text-gray-500 text-sm italic">${item.desc}</p>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                        <div class="mb-16 fade-in-up delay-100">
+                            <h3 class="text-3xl font-serif text-white border-b border-white/10 pb-4 mb-8">Main Courses</h3>
+                            <div class="grid md:grid-cols-2 gap-x-16 gap-y-8">
+                                ${menuItems.mains.map(item => `
+                                    <div class="flex justify-between items-start group">
+                                        <div class="flex-grow pr-4">
+                                            <div class="flex justify-between items-baseline mb-1">
+                                                <h4 class="text-lg font-serif text-white group-hover:text-gold-400 transition">${item.name}</h4>
+                                                <div class="flex-grow mx-4 border-b border-dotted border-gray-700 h-1"></div>
+                                                <span class="text-gold-400 font-bold whitespace-nowrap">${item.price}</span>
+                                            </div>
+                                            <p class="text-gray-500 text-sm italic">${item.desc}</p>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                        <div class="fade-in-up delay-200">
+                            <h3 class="text-3xl font-serif text-white border-b border-white/10 pb-4 mb-8">Beverages</h3>
+                            <div class="grid md:grid-cols-2 gap-x-16 gap-y-8">
+                                ${menuItems.drinks.map(item => `
+                                    <div class="flex justify-between items-start group">
+                                        <div class="flex-grow pr-4">
+                                            <div class="flex justify-between items-baseline mb-1">
+                                                <h4 class="text-lg font-serif text-white group-hover:text-gold-400 transition">${item.name}</h4>
+                                                <div class="flex-grow mx-4 border-b border-dotted border-gray-700 h-1"></div>
+                                                <span class="text-gold-400 font-bold whitespace-nowrap">${item.price}</span>
+                                            </div>
+                                            <p class="text-gray-500 text-sm italic">${item.desc}</p>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    <div class="text-center mt-20 px-4">
+                        <p class="text-gray-500 text-xs uppercase tracking-widest">Note: Menu items and prices subject to availability and change.</p>
+                    </div>
+                </section>
+            `,
+
+            about: `
+                <section class="bg-dark-900 min-h-screen">
+                    <div class="h-[50vh] bg-[url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center flex items-center justify-center relative">
+                        <div class="absolute inset-0 bg-black/60"></div>
+                        <h1 class="relative z-10 text-5xl md:text-7xl font-serif text-white fade-in-up">Our Philosophy</h1>
+                    </div>
+
+                    <div class="max-w-4xl mx-auto px-6 py-24 text-center">
+                        <h4 class="text-gold-400 font-bold uppercase tracking-widest text-xs mb-6">Since 2020</h4>
+                        <p class="text-xl md:text-2xl font-serif text-white leading-relaxed mb-10">
+                            "Patio Bella was born from a desire to create a space where modern elegance meets the warmth of Ugandan hospitality."
+                        </p>
+                        <div class="text-gray-400 leading-8 space-y-6 text-justify md:text-center">
+                            <p>
+                                Situated in the modern Arena Mall in Nsambya, we are strategically placed to offer not just convenience, but an elevation of the dining experience. Our sister branch, Patio Brasserie, laid the foundation, but Patio Bella turns up the style.
+                            </p>
+                            <p>
+                                From our open-air terrace that captures the golden hour over Kampala's hills to our meticulously designed interior featuring dark woods and ambient lighting, every corner is an Instagram-worthy moment waiting to happen.
+                            </p>
+                            <p>
+                                Our kitchen is a melting pot of flavors. Whether you crave the hearty comfort of Goat Ribs or the refined taste of Tokusen Wagyu pasta, our chefs prepare every dish with passion and precision.
+                            </p>
+                        </div>
+                        
+                        <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div class="p-6 border border-white/5 bg-dark-950">
+                                <i class="fas fa-leaf text-gold-400 text-2xl mb-4"></i>
+                                <h3 class="text-white font-serif text-xl mb-2">Fresh Ingredients</h3>
+                                <p class="text-gray-500 text-sm">Sourced locally from trusted farmers.</p>
+                            </div>
+                            <div class="p-6 border border-white/5 bg-dark-950">
+                                <i class="fas fa-glass-martini-alt text-gold-400 text-2xl mb-4"></i>
+                                <h3 class="text-white font-serif text-xl mb-2">Master Mixology</h3>
+                                <p class="text-gray-500 text-sm">Cocktails crafted to perfection.</p>
+                            </div>
+                            <div class="p-6 border border-white/5 bg-dark-950">
+                                <i class="fas fa-music text-gold-400 text-2xl mb-4"></i>
+                                <h3 class="text-white font-serif text-xl mb-2">Great Ambiance</h3>
+                                <p class="text-gray-500 text-sm">Curated playlists and chill vibes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            `,
+
+            contact: `
+                <section class="bg-dark-900 min-h-screen pt-24 pb-24">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                        <div class="text-center mb-16">
+                            <h4 class="text-gold-400 font-bold uppercase tracking-widest text-xs mb-3">Get in Touch</h4>
+                            <h2 class="text-4xl md:text-5xl font-serif text-white">Contact & Location</h2>
+                        </div>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                            <div class="bg-dark-800 p-10 border border-white/5 rounded-sm h-full flex flex-col justify-center">
+                                <h3 class="text-2xl font-serif text-white mb-8">Visit Us</h3>
+                                
+                                <div class="space-y-8">
+                                    <div class="flex items-start">
+                                        <div class="w-12 h-12 bg-dark-900 flex items-center justify-center text-gold-400 mr-6 flex-shrink-0">
+                                            <i class="fas fa-map-marker-alt text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-2">Location</h4>
+                                            <p class="text-gray-400 leading-relaxed">Arena Mall, Upper Ground Floor<br>Nsambya, Kampala, Uganda</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-start">
+                                        <div class="w-12 h-12 bg-dark-900 flex items-center justify-center text-gold-400 mr-6 flex-shrink-0">
+                                            <i class="fas fa-phone-alt text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-2">Phone</h4>
+                                            <p class="text-gray-400">+256 775 852656<br>+256 752 504731</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-start">
+                                        <div class="w-12 h-12 bg-dark-900 flex items-center justify-center text-gold-400 mr-6 flex-shrink-0">
+                                            <i class="fas fa-envelope text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-2">Email</h4>
+                                            <p class="text-gray-400">thepatiobella@gmail.com</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mt-12">
+                                    <button onclick="toggleModal()" class="w-full bg-gold-500 text-black font-bold uppercase tracking-widest py-4 hover:bg-white transition">Make a Reservation</button>
+                                </div>
+                            </div>
+
+                            <div class="h-96 lg:h-auto bg-gray-800 relative overflow-hidden group">
+                                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition duration-500">
+                                <div class="absolute inset-0 flex flex-col items-center justify-center">
+                                    <div class="bg-black/80 p-6 text-center border border-white/10 backdrop-blur-md">
+                                        <h3 class="text-white font-serif text-xl mb-2">Arena Mall</h3>
+                                        <p class="text-gold-400 text-sm mb-4">Nsambya Road</p>
+                                        <a href="https://maps.google.com" target="_blank" class="text-xs text-white uppercase border-b border-white pb-1 hover:text-gold-400 hover:border-gold-400 transition">Open in Google Maps</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            `
+        };
+
+        // --- APP CONTROLLER ---
+        
+        function router(viewName) {
+            const app = document.getElementById('app');
+            // Check if view exists, else default to home
+            const content = views[viewName] || views.home;
+            
+            // Fade out current content (optional visual polish)
+            app.style.opacity = '0';
+            
+            setTimeout(() => {
+                app.innerHTML = content;
+                window.scrollTo(0, 0);
+                app.style.opacity = '1';
+                
+                // Add fade-in classes to new elements automatically
+                const elements = app.querySelectorAll('h1, h2, p, .btn');
+                elements.forEach((el, index) => {
+                    // Simple stagger effect logic could go here
+                });
+            }, 200);
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('menu-closed')) {
+                menu.classList.remove('menu-closed');
+                menu.classList.add('menu-open');
+            } else {
+                menu.classList.remove('menu-open');
+                menu.classList.add('menu-closed');
+            }
+        }
+
+        function toggleModal() {
+            const modal = document.getElementById('reservation-modal');
+            if (modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden');
+                // Allow CSS transition to catch up
+                setTimeout(() => modal.firstElementChild.classList.remove('opacity-0'), 10); 
+            } else {
+                modal.classList.add('hidden');
+            }
+        }
+
+        // Initialize App
+        document.addEventListener('DOMContentLoaded', () => {
+            router('home');
+            
+            // Navbar Scroll Effect
+            window.addEventListener('scroll', () => {
+                const nav = document.getElementById('navbar');
+                if (window.scrollY > 50) {
+                    nav.classList.add('shadow-lg');
+                    nav.classList.add('bg-dark-900');
+                } else {
+                    nav.classList.remove('shadow-lg');
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>
