@@ -3,7 +3,7 @@
   <head>
     <title class="name">Grace Community Church</title>
     <script src="tw.js"></script>
-    <meta charset="utf-8">\n    <meta name="description" content="Join our church community for worship, Bible study, prayer, fellowship, and service. Everyone is welcome.">
+    <meta charset="utf-8"><meta name="description" content="Join our church community for worship, Bible study, prayer, fellowship, and service. Everyone is welcome.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,500,700" rel="stylesheet">
     <link href="remixicon.css" rel="stylesheet">
@@ -74,7 +74,7 @@
         <a href="#donate" class="hover:text-emerald-600 transition">Donate</a>
       </div>
       <div class="flex items-center space-x-1">
-        <a class="bg-white/50 border-black border py-1 px-3 text-sm rounded-full hover:bg-emerald-500 hover:text-white hover:border-emerald-500 transition" href="#donate">Plan Your Visit</a>
+        <a class="bg-white/50 border-black border py-1 px-3 text-sm rounded-full hover:bg-emerald-500 hover:text-white hover:border-emerald-500 transition" href="#donate">Visit</a>
         <button id="menu-toggle" class="md:hidden hover:bg-emerald-500 rounded-full aspect-square p-1.5 w-11 h-11 hover:text-white text-lg transition">
           <i class="ri-menu-2-line"></i>
         </button>
@@ -258,7 +258,7 @@
 
     <script>
       const params = new URLSearchParams(window.location.search);
-      const value = params.get('prospect') || 'Grace Community Church';
+      const value = params.get('prospect') || 'Grace Ministries';
       document.querySelectorAll(".name").forEach(el => {
         el.textContent = value;
       });
