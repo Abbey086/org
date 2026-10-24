@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title class="name">Grace & Fellowship Church</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,500,600,700" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+      * {
+        font-family: "Raleway", sans-serif;
+      }
+      
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+      
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      .slide-in-left {
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+      }
+      
+      .slide-in-left.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      
+      .slide-in-right {
+        opacity: 0;
+        transform: translateX(50px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+      }
+      
+      .slide-in-right.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .mobile-menu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
+      }
+      
+      .mobile-menu.active {
+        max-height: 650px;
+      }
+    </style>
+  </head>
+  <body class="bg-emerald-50 text-gray-800 overflow-x-hidden max-w-screen">
+
+    <!-- Header / Navigation Bar -->
+    <nav class="flex sticky top-0 z-50 bg-emerald-50/95 backdrop-blur-md justify-between px-4 lg:px-8 items-center py-3 shadow-sm border-b border-emerald-100">
+      <div class="flex items-center space-x-2">
+        <i class="ri-cross-fill text-2xl text-emerald-600"></i>
+        <span class="font-bold text-lg text-emerald-950 tracking-tight name">Grace & Fellowship Church</span>
+      </div>
+      <div class="hidden lg:flex space-x-6 text-sm font-medium text-emerald-900">
+        <a href="#home" class="hover:text-emerald-600 transition">Home</a>
+        <a href="#about" class="hover:text-emerald-600 transition">About</a>
+        <a href="#impact" class="hover:text-emerald-600 transition">Impact</a>
+        <a href="#ministries" class="hover:text-emerald-600 transition">Ministries</a>
+        <a href="#sermons" class="hover:text-emerald-600 transition">Sermons</a>
+        <a href="#events" class="hover:text-emerald-600 transition">Events</a>
+        <a href="#devotional" class="hover:text-emerald-600 transition">Devotional</a>
+        <a href="#testimonies" class="hover:text-emerald-600 transition">Testimonies</a>
+        <a href="#donate" class="hover:text-emerald-600 transition">Give</a>
+      </div>
+      <div class="flex items-center space-x-2">
+        <a class="bg-white/80 border border-emerald-600 py-1.5 px-4 text-xs md:text-sm font-semibold rounded-full text-emerald-800 hover:bg-emerald-600 hover:text-white transition shadow-sm" href="#donate">Give / Support</a>
+        <button id="menu-toggle" class="lg:hidden hover:bg-emerald-200 rounded-full aspect-square p-2 w-10 h-10 flex items-center justify-center text-emerald-900 text-xl transition">
+          <i class="ri-menu-2-line"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="mobile-menu lg:hidden bg-white shadow-lg border-b border-emerald-100">
+      <div class="flex flex-col p-5 space-y-2 text-sm font-medium text-gray-700">
+        <a href="#home" class="hover:text-emerald-600 transition py-1.5 border-b border-gray-100">Home</a>
+        <a href="#about" class="hover:text-emerald-600 transition py-1.5 border-b border-gray-100">About Us</a>
+        <a href="#impact" class="hover:text-emerald-600 transition py-1.5 border-b border-gray-100">Our Impact & Pillars</a>
+        <a href="#ministries" class="hover:text-emerald-600 transition py-1.5 border-b border-gray-100">Ministries</a>
+        <a href="#sermons" class="hover:text-emerald-600 transition py-1.5 border-b border-gray-100">Weekly Sermons</a>
+        <a href="#events" class="hover:text-emerald-600 transition py-1.5 border-b border-gray-100">Upcoming Events</a>
+        <a href="#devotional" class="hover:text-emerald-600 transition py-1.5 border-b border-gray-100">Daily Devotional</a>
+        <a href="#testimonies" class="hover:text-emerald-600 transition py-1.5 border-b border-gray-100">Testimonies</a>
+        <a href="#donate" class="hover:text-emerald-600 transition py-1.5">Tithes & Giving</a>
+      </div>
+    </div>
+
+    <!-- Main Hero Banner -->
+    <main id="home" class="m-3 overflow-hidden mt-0 rounded-2xl bg-stone-900 h-[85vh] min-h-[520px] bg-no-repeat bg-center relative" style="background-image: url('https://images.unsplash.com/photo-1438232992991-995b7058bbb3?q=80&w=1600&auto=format&fit=crop'); background-size: cover;">
+      <div class="cover absolute bg-gradient-to-t from-black via-black/40 to-black/30 w-full h-full"></div>
+      <div class="absolute space-y-3 bottom-6 left-6 right-6 md:bottom-12 md:left-12 md:right-12 max-w-4xl fade-in visible">
+        <span class="bg-emerald-500/90 text-white text-xs font-bold tracking-wider uppercase rounded-full py-1.5 px-3.5 inline-flex items-center gap-1.5 backdrop-blur-sm shadow-md">
+          <i class="ri-pulse-fill text-emerald-200 animate-pulse"></i> WELCOME TO GOD'S HOUSE
+        </span>
+        <h1 class="text-white font-bold text-3xl sm:text-4xl md:text-6xl leading-tight drop-shadow-md">
+          Transforming Lives Through <span class="text-emerald-300 underline decoration-emerald-500/50">Faith, Hope & Love</span>
+        </h1>
+        <p class="text-emerald-100 text-sm md:text-lg max-w-2xl font-normal leading-relaxed drop-shadow">
+          "For where two or three gather in my name, there am I with them." — Matthew 18:20
+        </p>
+        <div class="flex flex-wrap gap-3 pt-2">
+          <a class="bg-emerald-600 text-white font-semibold py-2.5 px-6 rounded-full hover:bg-emerald-700 transition shadow-lg text-sm md:text-base flex items-center gap-2" href="#events">
+            <i class="ri-calendar-event-line"></i> Join Us This Sunday
+          </a>
+          <a class="bg-white/20 hover:bg-white/30 text-white border border-white/40 font-semibold py-2.5 px-6 rounded-full transition text-sm md:text-base backdrop-blur-sm flex items-center gap-2" href="#donate">
+            <i class="ri-heart-3-line"></i> Tithes & Giving
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Service Times & Location Quick Bar -->
+    <section class="mx-3 -mt-4 mb-6 relative z-20">
+      <div class="bg-white rounded-xl shadow-lg border border-emerald-100 p-4 md:p-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-center md:text-left divide-y md:divide-y-0 md:divide-x divide-emerald-100">
+        <div class="flex items-center space-x-4 p-2">
+          <div class="bg-emerald-100 text-emerald-700 rounded-full p-3 text-2xl flex-shrink-0">
+            <i class="ri-time-line"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-gray-800 text-sm md:text-base">Worship Services</h4>
+            <p class="text-xs md:text-sm text-gray-600">Sundays: 9:00 AM & 11:30 AM</p>
+            <p class="text-xs text-emerald-600 font-medium">Wednesdays: 6:30 PM (Bible Study)</p>
+          </div>
+        </div>
+        <div class="flex items-center space-x-4 p-2 pt-4 md:pt-2">
+          <div class="bg-emerald-100 text-emerald-700 rounded-full p-3 text-2xl flex-shrink-0">
+            <i class="ri-map-pin-line"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-gray-800 text-sm md:text-base">Location & Campus</h4>
+            <p class="text-xs md:text-sm text-gray-600">777 Grace Worship Way, Sanctuary City</p>
+            <p class="text-xs text-emerald-600 font-medium">Main Sanctuary & Online Broadcast</p>
+          </div>
+        </div>
+        <div class="flex items-center space-x-4 p-2 pt-4 md:pt-2">
+          <div class="bg-emerald-100 text-emerald-700 rounded-full p-3 text-2xl flex-shrink-0">
+            <i class="ri-phone-line"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-gray-800 text-sm md:text-base">Need Prayer & Counsel?</h4>
+            <p class="text-xs md:text-sm text-gray-600">24/7 Prayer Line: (800) 555-PRAYER</p>
+            <p class="text-xs text-emerald-600 font-medium">pastoralcare@gracechurch.org</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Stats & Impact Section -->
+    <section id="impact" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
+      <div class="card p-6 bg-white rounded-xl flex flex-col justify-between fade-in shadow-sm hover:shadow-md transition border-t-4 border-emerald-500">
+        <h2 class="text-4xl font-extrabold text-emerald-600 mb-2">1,500+</h2>
+        <div>
+          <h3 class="font-semibold text-gray-800">Faithful Members</h3>
+          <p class="text-xs text-gray-600 mt-1">A diverse, loving body worshipping God in unity across all ages and backgrounds.</p>
+        </div>
+      </div>
+      <div class="card p-6 bg-white rounded-xl flex flex-col justify-between fade-in shadow-sm hover:shadow-md transition border-t-4 border-emerald-500">
+        <h2 class="text-4xl font-extrabold text-emerald-600 mb-2">25+</h2>
+        <div>
+          <h3 class="font-semibold text-gray-800">Global Mission Partners</h3>
+          <p class="text-xs text-gray-600 mt-1">Planting churches, digging clean water wells, and supporting orphanages worldwide.</p>
+        </div>
+      </div>
+      <div class="card p-6 bg-white rounded-xl flex flex-col justify-between fade-in shadow-sm hover:shadow-md transition border-t-4 border-emerald-500">
+        <h2 class="text-4xl font-extrabold text-emerald-600 mb-2">500+</h2>
+        <div>
+          <h3 class="font-semibold text-gray-800">Youth & Children</h3>
+          <p class="text-xs text-gray-600 mt-1">Nurturing faith in our kids through energetic NextGen Sunday school and youth rallies.</p>
+        </div>
+      </div>
+      <div class="card p-6 bg-white rounded-xl flex flex-col justify-between fade-in shadow-sm hover:shadow-md transition border-t-4 border-emerald-500">
+        <h2 class="text-4xl font-extrabold text-emerald-600 mb-2">12+</h2>
+        <div>
+          <h3 class="font-semibold text-gray-800">Active Life Groups</h3>
+          <p class="text-xs text-gray-600 mt-1">Midweek home fellowship groups for Bible study, accountability, and prayer support.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comprehensive About Us Section -->
+    <section id="about" class="m-4 p-6 md:p-10 bg-white rounded-xl shadow-sm slide-in-left border border-emerald-100">
+      <div class="max-w-5xl mx-auto space-y-8">
+        <div>
+          <span class="text-emerald-600 font-bold text-xs uppercase tracking-widest">Who We Are</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-1">About <span class="name">Grace & Fellowship Church</span></h2>
+          <p class="text-gray-600 mt-4 leading-relaxed text-sm md:text-base">
+            Founded with a passion to reveal the love of God and empower believers to live out their divine calling, <strong>Grace & Fellowship Church</strong> is a vibrant, Bible-believing Christian ministry. For over two decades, our sanctuary has been a place of healing, spiritual growth, and heartfelt worship for families in our city and beyond.
+          </p>
+        </div>
+
+        <!-- Vision, Mission & Core Values Grid -->
+        <div class="grid md:grid-cols-3 gap-6 pt-2">
+          <div class="bg-emerald-50/60 p-5 rounded-lg border border-emerald-100">
+            <i class="ri-eye-line text-3xl text-emerald-600 mb-2 block"></i>
+            <h3 class="font-bold text-gray-800 text-lg mb-2">Our Vision</h3>
+            <p class="text-xs md:text-sm text-gray-600 leading-relaxed">
+              To be a beacon of hope, leading people of all nations into a vibrant relationship with Jesus Christ and equipping them to transform their communities.
+            </p>
+          </div>
+          <div class="bg-emerald-50/60 p-5 rounded-lg border border-emerald-100">
+            <i class="ri-compass-3-line text-3xl text-emerald-600 mb-2 block"></i>
+            <h3 class="font-bold text-gray-800 text-lg mb-2">Our Mission</h3>
+            <p class="text-xs md:text-sm text-gray-600 leading-relaxed">
+              To exalt God through passionate worship, cultivate deep Christian fellowship, train believers through biblical discipleship, and serve humanity through active outreach.
+            </p>
+          </div>
+          <div class="bg-emerald-50/60 p-5 rounded-lg border border-emerald-100">
+            <i class="ri-shield-star-line text-3xl text-emerald-600 mb-2 block"></i>
+            <h3 class="font-bold text-gray-800 text-lg mb-2">Core Values</h3>
+            <p class="text-xs md:text-sm text-gray-600 leading-relaxed">
+              Biblical Authority, Unconditional Love, Kingdom Servant Leadership, Authentic Worship, Generosity, and Unceasing Intercessory Prayer.
+            </p>
+          </div>
+        </div>
+
+        <!-- Statement of Faith Overview -->
+        <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+          <h3 class="text-xl font-bold text-gray-800 mb-3 flex items-center gap-2">
+            <i class="ri-book-mark-line text-emerald-600"></i> Our Statement of Faith
+          </h3>
+          <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs md:text-sm text-gray-600">
+            <div>
+              <strong class="text-gray-800 block mb-1">1. The Holy Scriptures</strong>
+              We believe the Holy Bible is the inspired, infallible, and authoritative Word of God written for guidance.
+            </div>
+            <div>
+              <strong class="text-gray-800 block mb-1">2. The Trinity</strong>
+              We believe in one God, eternally existing in three co-equal persons: God the Father, God the Son, and God the Holy Spirit.
+            </div>
+            <div>
+              <strong class="text-gray-800 block mb-1">3. Salvation by Grace</strong>
+              Salvation is a gift from God received through faith in Jesus Christ, whose sacrificial death redeemed humanity from sin.
+            </div>
+            <div>
+              <strong class="text-gray-800 block mb-1">4. The Body of Christ</strong>
+              The church is the spiritual body of believers called to love one another, practice sacraments, and fulfill the Great Commission.
+            </div>
+          </div>
+        </div>
+
+        <!-- Pastoral & Leadership Team Spotlight -->
+        <div>
+          <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Pastoral Leadership</h3>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-white rounded-xl overflow-hidden border border-gray-200 shadow-sm text-center">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop" alt="Pastor David" class="w-full h-48 object-cover">
+              <div class="p-4">
+                <h4 class="font-bold text-gray-800">Pastor David Williams</h4>
+                <p class="text-xs text-emerald-600 font-medium">Senior Pastor</p>
+                <p class="text-xs text-gray-500 mt-2">Serving with over 18 years of pastoral leadership and passion for expository preaching.</p>
+              </div>
+            </div>
+            <div class="bg-white rounded-xl overflow-hidden border border-gray-200 shadow-sm text-center">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop" alt="Pastor Sarah" class="w-full h-48 object-cover">
+              <div class="p-4">
+                <h4 class="font-bold text-gray-800">Sarah Jenkins</h4>
+                <p class="text-xs text-emerald-600 font-medium">Worship Director</p>
+                <p class="text-xs text-gray-500 mt-2">Leading God's people into divine presence through spirit-led praise and creative arts.</p>
+              </div>
+            </div>
+            <div class="bg-white rounded-xl overflow-hidden border border-gray-200 shadow-sm text-center">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop" alt="Pastor Mark" class="w-full h-48 object-cover">
+              <div class="p-4">
+                <h4 class="font-bold text-gray-800">Mark Thompson</h4>
+                <p class="text-xs text-emerald-600 font-medium">Youth & Young Adults Pastor</p>
+                <p class="text-xs text-gray-500 mt-2">Dedicated to raising bold, unashamed student disciples rooted in Christ's message.</p>
+              </div>
+            </div>
+            <div class="bg-white rounded-xl overflow-hidden border border-gray-200 shadow-sm text-center">
+              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400&auto=format&fit=crop" alt="Pastor Grace" class="w-full h-48 object-cover">
+              <div class="p-4">
+                <h4 class="font-bold text-gray-800">Grace Okonjo</h4>
+                <p class="text-xs text-emerald-600 font-medium">Outreach & Missions Director</p>
+                <p class="text-xs text-gray-500 mt-2">Organizing local food banks, community health drives, and global mission trips.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Comprehensive Ministries Section -->
+    <section id="ministries" class="m-4">
+      <div class="text-center max-w-2xl mx-auto mb-8 fade-in">
+        <span class="text-emerald-600 font-bold text-xs uppercase tracking-widest">Get Involved</span>
+        <h2 class="text-3xl font-bold text-gray-900 mt-1">Our Church Ministries</h2>
+        <p class="text-gray-600 text-sm mt-2">Every believer has a unique God-given gift. Discover where you can belong, grow, and serve in our church community.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white rounded-xl p-6 slide-in-left shadow-sm hover:shadow-md transition border border-emerald-100 flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center text-emerald-600 text-2xl mb-4">
+              <i class="ri-music-2-line"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">Worship & Creative Arts</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">Our choir, band, media team, and drama group cultivate an atmosphere of praise, bringing glory to God through musical excellence.</p>
+          </div>
+          <div class="mt-4 pt-4 border-t border-gray-100 text-xs text-emerald-700 font-medium">Rehearsals: Thursdays @ 7:00 PM</div>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 fade-in shadow-sm hover:shadow-md transition border border-emerald-100 flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center text-emerald-600 text-2xl mb-4">
+              <i class="ri-emotion-happy-line"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">NextGen Youth & Children</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">Safe, fun, and scripture-filled environments for toddlers, elementary kids, and teenagers to encounter God every week.</p>
+          </div>
+          <div class="mt-4 pt-4 border-t border-gray-100 text-xs text-emerald-700 font-medium">Gatherings: Sundays @ 9:00 AM & 11:30 AM</div>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 slide-in-right shadow-sm hover:shadow-md transition border border-emerald-100 flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center text-emerald-600 text-2xl mb-4">
+              <i class="ri-global-line"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">Missions & Local Outreach</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">Extending Christ's hands and feet to feed the hungry, clothe families in need, and share gospel hope locally and internationally.</p>
+          </div>
+          <div class="mt-4 pt-4 border-t border-gray-100 text-xs text-emerald-700 font-medium">Community Drive: First Saturday monthly</div>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 slide-in-left shadow-sm hover:shadow-md transition border border-emerald-100 flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center text-emerald-600 text-2xl mb-4">
+              <i class="ri-team-line"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">Life Groups & Discipleship</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">Small home groups that meet across neighborhood districts for Bible study, genuine friendship, prayer, and life application.</p>
+          </div>
+          <div class="mt-4 pt-4 border-t border-gray-100 text-xs text-emerald-700 font-medium">Meetings: Tuesday & Wednesday Nights</div>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 fade-in shadow-sm hover:shadow-md transition border border-emerald-100 flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center text-emerald-600 text-2xl mb-4">
+              <i class="ri-fire-line"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">Prayer & Intercession</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">Dedicated intercessors standing on the frontlines of spiritual battle, praying for miracles, physical healing, and revival.</p>
+          </div>
+          <div class="mt-4 pt-4 border-t border-gray-100 text-xs text-emerald-700 font-medium">Prayer Altar: Daily Morning & Night Vigil</div>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 slide-in-right shadow-sm hover:shadow-md transition border border-emerald-100 flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center text-emerald-600 text-2xl mb-4">
+              <i class="ri-heart-add-line"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">Marriage & Family Life</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">Equipping married couples, parents, and singles with biblical wisdom through retreats, counseling, and covenant workshops.</p>
+          </div>
+          <div class="mt-4 pt-4 border-t border-gray-100 text-xs text-emerald-700 font-medium">Workshops: Bi-monthly Saturday Seminars</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sermons & Media Archive Section -->
+    <section id="sermons" class="m-4 p-6 md:p-8 bg-emerald-900 text-white rounded-xl fade-in">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4">
+        <div>
+          <span class="text-emerald-300 font-bold text-xs uppercase tracking-widest">Listen & Watch</span>
+          <h2 class="text-3xl font-bold mt-1">Recent Sermons & Preaching</h2>
+          <p class="text-emerald-100 text-sm mt-1">Be encouraged and instructed in the Holy Word anytime, anywhere.</p>
+        </div>
+        <a href="#sermons" class="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-2 px-4 rounded-full text-xs md:text-sm transition flex items-center gap-2">
+          <i class="ri-video-line"></i> View Sermon Library
+        </a>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Sermon Card 1 -->
+        <div class="bg-emerald-950/80 rounded-xl overflow-hidden border border-emerald-800 shadow-md">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=500&auto=format&fit=crop" alt="Sermon Thumbnail" class="w-full h-44 object-cover">
+            <span class="absolute top-2 right-2 bg-emerald-600 text-white text-[10px] uppercase font-bold px-2 py-0.5 rounded">Series: Unshakable</span>
+          </div>
+          <div class="p-5 space-y-2">
+            <span class="text-xs text-emerald-300">Sunday, Oct 18, 2026 • Pastor David Williams</span>
+            <h3 class="font-bold text-lg text-white">Walking By Faith In Uncertain Times</h3>
+            <p class="text-xs text-emerald-100 leading-relaxed">Understanding how to anchor your spirit in God's promises when surrounding storms rage. (Hebrews 11:1-6)</p>
+            <div class="pt-3 flex items-center justify-between">
+              <button onclick="alert('Playing Sermon Audio: Walking By Faith In Uncertain Times')" class="bg-emerald-500 hover:bg-emerald-400 text-emerald-950 font-bold text-xs py-1.5 px-3 rounded-md transition flex items-center gap-1">
+                <i class="ri-play-fill"></i> Listen Audio
+              </button>
+              <button onclick="alert('Opening Sermon Video Stream')" class="text-xs text-emerald-300 hover:text-white flex items-center gap-1">
+                <i class="ri-youtube-line"></i> Watch Video
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sermon Card 2 -->
+        <div class="bg-emerald-950/80 rounded-xl overflow-hidden border border-emerald-800 shadow-md">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1509021436468-d5103e3927d6?q=80&w=500&auto=format&fit=crop" alt="Sermon Thumbnail" class="w-full h-44 object-cover">
+            <span class="absolute top-2 right-2 bg-emerald-600 text-white text-[10px] uppercase font-bold px-2 py-0.5 rounded">Series: Kingdom Power</span>
+          </div>
+          <div class="p-5 space-y-2">
+            <span class="text-xs text-emerald-300">Sunday, Oct 11, 2026 • Sarah Jenkins</span>
+            <h3 class="font-bold text-lg text-white">The Heart of True Praise</h3>
+            <p class="text-xs text-emerald-100 leading-relaxed">Discovering worship as a spiritual lifestyle rather than just a Sunday morning routine. (John 4:23-24)</p>
+            <div class="pt-3 flex items-center justify-between">
+              <button onclick="alert('Playing Sermon Audio: The Heart of True Praise')" class="bg-emerald-500 hover:bg-emerald-400 text-emerald-950 font-bold text-xs py-1.5 px-3 rounded-md transition flex items-center gap-1">
+                <i class="ri-play-fill"></i> Listen Audio
+              </button>
+              <button onclick="alert('Opening Sermon Video Stream')" class="text-xs text-emerald-300 hover:text-white flex items-center gap-1">
+                <i class="ri-youtube-line"></i> Watch Video
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sermon Card 3 -->
+        <div class="bg-emerald-950/80 rounded-xl overflow-hidden border border-emerald-800 shadow-md">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1507692049790-de58290a4334?q=80&w=500&auto=format&fit=crop" alt="Sermon Thumbnail" class="w-full h-44 object-cover">
+            <span class="absolute top-2 right-2 bg-emerald-600 text-white text-[10px] uppercase font-bold px-2 py-0.5 rounded">Series: Living Grace</span>
+          </div>
+          <div class="p-5 space-y-2">
+            <span class="text-xs text-emerald-300">Sunday, Oct 04, 2026 • Pastor Mark Thompson</span>
+            <h3 class="font-bold text-lg text-white">Overcoming Fear With Divine Love</h3>
+            <p class="text-xs text-emerald-100 leading-relaxed">Perfect love drives out all fear. How Christ frees us from anxiety and condemnation. (1 John 4:18)</p>
+            <div class="pt-3 flex items-center justify-between">
+              <button onclick="alert('Playing Sermon Audio: Overcoming Fear With Divine Love')" class="bg-emerald-500 hover:bg-emerald-400 text-emerald-950 font-bold text-xs py-1.5 px-3 rounded-md transition flex items-center gap-1">
+                <i class="ri-play-fill"></i> Listen Audio
+              </button>
+              <button onclick="alert('Opening Sermon Video Stream')" class="text-xs text-emerald-300 hover:text-white flex items-center gap-1">
+                <i class="ri-youtube-line"></i> Watch Video
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Upcoming Events Calendar Section -->
+    <section id="events" class="m-4">
+      <div class="text-center max-w-2xl mx-auto mb-8 fade-in">
+        <span class="text-emerald-600 font-bold text-xs uppercase tracking-widest">Mark Your Calendar</span>
+        <h2 class="text-3xl font-bold text-gray-900 mt-1">Upcoming Church Events</h2>
+        <p class="text-gray-600 text-sm mt-2">Join us for special gatherings, prayer summits, and community outreaches.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Event Item 1 -->
+        <div class="bg-white rounded-xl overflow-hidden border border-emerald-100 shadow-sm hover:shadow-md transition slide-in-left">
+          <div class="bg-emerald-600 text-white p-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+              <div class="text-center bg-white text-emerald-800 rounded-lg p-2 min-w-[50px]">
+                <span class="block text-xs font-bold uppercase">NOV</span>
+                <span class="block text-xl font-extrabold leading-none">01</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-base">Annual Revival Conference</h3>
+                <p class="text-xs text-emerald-100">3-Day Spiritual Renewal Gathering</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-5 space-y-3 text-xs md:text-sm text-gray-600">
+            <p class="flex items-center gap-2"><i class="ri-time-line text-emerald-600"></i> Nov 1 - Nov 3 • 6:30 PM Daily</p>
+            <p class="flex items-center gap-2"><i class="ri-map-pin-line text-emerald-600"></i> Main Sanctuary Auditorium</p>
+            <p class="leading-relaxed text-gray-500">Guest speakers, extended worship, prophetic ministry, and powerful intercession for revival in our land.</p>
+            <button onclick="alert('Thank you for registering for the Annual Revival Conference! We look forward to seeing you.')" class="w-full mt-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-semibold py-2 rounded-lg transition border border-emerald-200">
+              Register Free
+            </button>
+          </div>
+        </div>
+
+        <!-- Event Item 2 -->
+        <div class="bg-white rounded-xl overflow-hidden border border-emerald-100 shadow-sm hover:shadow-md transition fade-in">
+          <div class="bg-emerald-600 text-white p-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+              <div class="text-center bg-white text-emerald-800 rounded-lg p-2 min-w-[50px]">
+                <span class="block text-xs font-bold uppercase">NOV</span>
+                <span class="block text-xl font-extrabold leading-none">07</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-base">Community Food Outreach</h3>
+                <p class="text-xs text-emerald-100">Loving Our Neighbors Drive</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-5 space-y-3 text-xs md:text-sm text-gray-600">
+            <p class="flex items-center gap-2"><i class="ri-time-line text-emerald-600"></i> Saturday • 9:00 AM - 1:00 PM</p>
+            <p class="flex items-center gap-2"><i class="ri-map-pin-line text-emerald-600"></i> Grace Fellowship Center Grounds</p>
+            <p class="leading-relaxed text-gray-500">Distributing groceries, hot meals, warm clothing, and prayer for families in our surrounding neighborhood.</p>
+            <button onclick="alert('Thank you for volunteering for Community Food Outreach!')" class="w-full mt-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-semibold py-2 rounded-lg transition border border-emerald-200">
+              Sign Up To Volunteer
+            </button>
+          </div>
+        </div>
+
+        <!-- Event Item 3 -->
+        <div class="bg-white rounded-xl overflow-hidden border border-emerald-100 shadow-sm hover:shadow-md transition slide-in-right">
+          <div class="bg-emerald-600 text-white p-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+              <div class="text-center bg-white text-emerald-800 rounded-lg p-2 min-w-[50px]">
+                <span class="block text-xs font-bold uppercase">NOV</span>
+                <span class="block text-xl font-extrabold leading-none">14</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-base">Youth Encounter Night</h3>
+                <p class="text-xs text-emerald-100">Praise, Word & Fellowship</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-5 space-y-3 text-xs md:text-sm text-gray-600">
+            <p class="flex items-center gap-2"><i class="ri-time-line text-emerald-600"></i> Friday • 7:00 PM - 10:00 PM</p>
+            <p class="flex items-center gap-2"><i class="ri-map-pin-line text-emerald-600"></i> NextGen Youth Hall</p>
+            <p class="leading-relaxed text-gray-500">An electric night of high-energy praise, relevant youth preaching, game tournaments, and free pizza!</p>
+            <button onclick="alert('You are registered for Youth Encounter Night!')" class="w-full mt-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-semibold py-2 rounded-lg transition border border-emerald-200">
+              RSVP Youth Event
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Daily Devotional / Scripture Focus -->
+    <section id="devotional" class="m-4 p-6 md:p-8 bg-white rounded-xl border border-emerald-100 shadow-sm slide-in-left">
+      <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8">
+        <div class="bg-emerald-50 p-6 rounded-2xl border border-emerald-200 text-center md:text-left flex-shrink-0 w-full md:w-80">
+          <span class="text-emerald-700 font-bold text-xs uppercase tracking-wider block mb-1">Verse Of The Day</span>
+          <i class="ri-double-quotes-l text-4xl text-emerald-400 block my-2"></i>
+          <p class="font-serif italic text-gray-800 text-base md:text-lg">
+            "Trust in the LORD with all thine
